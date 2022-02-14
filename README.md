@@ -1,24 +1,38 @@
-# README
+# <じぶんメモ>
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## サイト概要
+<いつ何にお金を使ったか日記手帳風に記録できるサイト>
 
-Things you may want to cover:
+### サイトテーマ
+<日記と家計簿の融合>
 
-* Ruby version
+### テーマを選んだ理由
+<私は食品や外食などにお金を使うことが多く、使ったお金が形として残らないという不安感がありました。
+もし食事中の写真、開封前の食品の写真などを日時と画像で記録しておいて（その時いくら使ったのかも）、
+後から日記で再確認できるものがあれば、お金の管理ができるだけでなくあの時こんな食事したなと思い出すことができて
+気持ちの面でより豊かになれると思い、このテーマにしました。
+※登録する項目は食に限らずユーザが自由に設定できるようにします。>
 
-* System dependencies
+### ターゲットユーザ
+<家計の支出を管理したいと考える人、日記をつけたいと考えている人、またその両方>
 
-* Configuration
+### 主な利用シーン
+<日々の支出状況のメモをするときに。支出内容を確認するときに。いつ何をしたか思い出したいときに。>
 
-* Database creation
+## 設計書
+<後ほど追記します。>
 
-* Database initialization
+## チャレンジ要素一覧
 
-* How to run the test suite
+<https://docs.google.com/spreadsheets/d/1gi4e4-OimhfHJIn34Zae_F6jn_Vpe3uyEVb55IoMzN0/edit?usp=sharing>
 
-* Services (job queues, cache servers, search engines, etc.)
+## 開発環境
+- OS：Linux(CentOS)
+- 言語：HTML,CSS,JavaScript,Ruby,SQL
+- フレームワーク：Ruby on Rails
+- JSライブラリ：jQuery
+- IDE：Cloud9
 
-* Deployment instructions
-
-* ...
+## 使用素材
+- https://fontawesome.com/v5/search
+-
