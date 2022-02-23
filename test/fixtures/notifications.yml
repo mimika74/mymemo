@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  aggregate_id: 1
+  total_monthly_expense: 1
+  target_month: 2022-02-23
+
+two:
+  aggregate_id: 1
+  total_monthly_expense: 1
+  target_month: 2022-02-23
