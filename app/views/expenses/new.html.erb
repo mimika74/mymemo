@@ -1,2 +1,9 @@
-<h1>Expenses#new</h1>
-<p>Find me in app/views/expenses/new.html.erb</p>
+
+<%= form_with model: @expense, local:true do |f| %>
+
+  ￥<%= f.text_field :expense %>
+  <%= f.attachment_field :image_id %>
+  <%= f.text_area :memo %>
+
+  <%= f.submit 'memoする' %>
+<% end %>
