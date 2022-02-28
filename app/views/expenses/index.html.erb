@@ -1,2 +1,26 @@
-<h1>Expenses#index</h1>
-<p>Find me in app/views/expenses/index.html.erb</p>
+<p><%= @today.strftime("< %m / %Y >") %></p>
+<table>
+  <tr>
+    <% t('date.day_names').each do |day_name| %>
+      <td>
+        <%= day_name %>
+      </td>
+    <% end %>
+  </tr>
+  <% @calendar_data.each do |date| %>
+    <% if date.wday == 0 %>
+      <tr>
+    <% end %>
+    <td>
+      <%= date.day %>
+
+    　<%= expense = Expense.where(date: date).sum(:expense) %>
+      <%#= link_to "show", expense_path(expense.id) %>
+      
+    </td>
+    <% if date.wday == 6 %>
+    </tr>
+    <% end %>
+  <% end %>
+</table>
+

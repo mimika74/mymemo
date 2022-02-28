@@ -1,9 +1,24 @@
 
 <%= form_with model: @expense, local:true do |f| %>
 
-  ￥<%= f.text_field :expense %>
-  <%= f.attachment_field :image_id %>
-  <%= f.text_area :memo %>
+  <p>￥<%= f.text_field :expense %></p>
+  <p><%= f.attachment_field :image %></p>
+  <p><%= f.text_area :memo %></p>
+  <p></p>
+   <%= f.date_field :date, class:"form-control" %>
+  <!--<div class="form-group col-sm-8">-->
+    <%#= reservation.label :date, class:"left-border" %>
+    <!--<span class="required_mark">*</span>
+    <div class="input-group">
+     <input type="text" id="target">
 
-  <%= f.submit 'memoする' %>
+
+        <span class="input-group-addon">
+            <span class="glyphicon glyphicon-calendar"></span>
+        </span>
+    </div>-->
+
+
+
+  <p><%= f.submit 'memoする' %></p>
 <% end %>

@@ -1,12 +1,15 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Memostock</title>
+    <title>Mymemo</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap-datepicker.min.js"></script>
   </head>
 
   <body>
@@ -21,7 +24,7 @@
       <li>
         <%= link_to "ログイン", new_user_session_path %>
       </li>
-    <% end %>    <%= yield %>
+    <% end %>
 
     <%= yield %>
   </body>

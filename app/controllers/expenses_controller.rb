@@ -10,18 +10,23 @@ class ExpensesController < ApplicationController
   def create
     @expense = Expense.new(expense_params)
     @expense.user_id = current_user.id
-
-    if @expense.save
-      redirect_to expense_path(@expense.id)
-    else
-      render :new
-    end
-
+    @expense.genre_id = 1
+    @expense.save!
+      redirect_to expenses_path
 
   end
 
   def index
-    @expenses = current_user.expenses.all
+    #@expenses = current_user.expenses.all
+
+    @today = Date.today
+    from_date = Date.new(@today.year, @today.month, @today.beginning_of_month.day).beginning_of_week(:sunday)
+    to_date = Date.new(@today.year, @today.month, @today.end_of_month.day).end_of_week(:sunday)
+    @calendar_data = from_date.upto(to_date)
+
+    #@expense = Expense.find_by(date: )
+    @expense = Expense.find_by(params[:date])
+    @expenses =Expense.all
   end
 
   def edit
@@ -56,7 +61,7 @@ class ExpensesController < ApplicationController
 
   private
     def expense_params
-      params.require(:expense).permit(:user_id, :genre_id, :expense, :image_id, :memo, :target_month)
+      params.require(:expense).permit(:user_id, :genre_id, :expense, :image, :memo, :target_month, :created_at, :updated_at, :date)
     end
 
 end
