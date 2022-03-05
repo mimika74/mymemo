@@ -1,0 +1,15 @@
+<% @calendar_data.each do |date| %>
+
+<%# @expenses.each do |expense| %>
+
+
+<%= attachment_image_tag Expense.find_by(date: date), :image, :fill, 50, 50 %>
+
+
+
+<%= link_to expense_path(Expense.find_by(date: date).id) do %>
+  ¥<%= Expense.where(date: date), :expense %>
+<% end %>
+
+
+<% end %>

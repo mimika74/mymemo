@@ -29,8 +29,20 @@ class ExpensesController < ApplicationController
     @expenses =Expense.all
   end
 
+  def detail
+    @today = Date.today
+    from_date = Date.new(@today.year, @today.month, @today.beginning_of_month.day).beginning_of_week(:sunday)
+    to_date = Date.new(@today.year, @today.month, @today.end_of_month.day).end_of_week(:sunday)
+    @calendar_data = from_date.upto(to_date)
+
+    #@expense = Expense.find_by(date: )
+    @expense = Expense.find_by(params[:date])
+    @expenses =Expense.all
+
+  end
+
   def edit
-    @expense = Expense.find(params[:id])
+    @expense = Expense.find_by(params[:date])
     if @user == current_user
       render :edit
     else
@@ -56,6 +68,13 @@ class ExpensesController < ApplicationController
   end
 
   def show
+
+    @today = Date.today
+    from_date = Date.new(@today.year, @today.month, @today.beginning_of_month.day).beginning_of_week(:sunday)
+    to_date = Date.new(@today.year, @today.month, @today.end_of_month.day).end_of_week(:sunday)
+    @calendar_data = from_date.upto(to_date)
+
+    @expenses = Expense.all
     @expense =Expense.find(params[:id])
   end
 

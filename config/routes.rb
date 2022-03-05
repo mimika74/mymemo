@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   root to: 'homes#top'
 
-
+  get '/expenses_detail' => 'expenses#detail'
   resources :expenses do
     resource :favorites, only: [:create, :destroy, :index]
   end

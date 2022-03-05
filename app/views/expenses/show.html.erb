@@ -1,2 +1,16 @@
-<h1>Expenses#show</h1>
-<p>Find me in app/views/expenses/show.html.erb</p>
+
+
+
+
+
+<%= @expense.date %>
+<%= attachment_image_tag @expense, :image, :fill, 300, 300, format: 'jpeg', fallback: "" %>
+
+<%= @expense.expense %>
+<%= @expense.memo %>
+
+
+<%= link_to "edit", edit_expense_path(@expense.id) %>
+
+<%= link_to "destroy", expense_path(@expense.id), method: :delete %>
+

@@ -1,3 +1,6 @@
+
+<%= link_to "new", new_expense_path %>
+
 <p><%= @today.strftime("< %m / %Y >") %></p>
 <table>
   <tr>
@@ -29,7 +32,9 @@
             <td>
               <%= date.day %>
 
-              <%= attachment_image_tag Expense.find_by(date: date), :image %>
+              <%= link_to expense_path(Expense.find_by(date: date).id) do %>
+              <%= attachment_image_tag Expense.find_by(date: date), :image, :fill, 50, 50 %>
+              <% end %>
               <%#= link_to "show", expense_path(expense.id) %>
 
             </td>
@@ -45,7 +50,9 @@
             <td>
               <%= date.day %>
 
-            　<%= expense = Expense.where(date: date).sum(:expense) %>
+              <%= link_to expense_path(Expense.find_by(date: date).id) do %>
+            　¥<%= expense = Expense.where(date: date).sum(:expense) %>
+            　<% end %>
               <%#= link_to "show", expense_path(expense.id) %>
 
             </td>

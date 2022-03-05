@@ -10,4 +10,6 @@ class Expense < ApplicationRecord
     Expense.find_by(date: date).image
   end
 
+
+
 end
