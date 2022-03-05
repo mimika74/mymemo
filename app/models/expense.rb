@@ -5,4 +5,9 @@ class Expense < ApplicationRecord
   has_one :favorite
   attachment :image
 
+
+  def self.expense_image(date)
+    Expense.find_by(date: date).image
+  end
+
 end

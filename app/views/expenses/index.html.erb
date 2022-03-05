@@ -8,19 +8,52 @@
     <% end %>
   </tr>
   <% @calendar_data.each do |date| %>
-    <% if date.wday == 0 %>
-      <tr>
-    <% end %>
-    <td>
-      <%= date.day %>
 
-    　<%= expense = Expense.where(date: date).sum(:expense) %>
-      <%#= link_to "show", expense_path(expense.id) %>
-      
-    </td>
-    <% if date.wday == 6 %>
-    </tr>
-    <% end %>
+      <% if expense = Expense.where(date: date).empty? %>
+        <% if date.wday == 0 %>
+          <tr>
+        <% end %>
+        <td>
+          <%= date.day %>
+
+        </td>
+        <% if date.wday == 6 %>
+        </tr>
+        <% end %>　　　　　<%#空白表示 %>
+
+      <% else %>
+        <% if Expense.expense_image(date) %>
+            <% if date.wday == 0 %>
+              <tr>
+            <% end %>
+            <td>
+              <%= date.day %>
+
+              <%= attachment_image_tag Expense.find_by(date: date), :image %>
+              <%#= link_to "show", expense_path(expense.id) %>
+
+            </td>
+            <% if date.wday == 6 %>
+            </tr>
+            <% end %>
+
+
+        <% else %>
+            <% if date.wday == 0 %>
+              <tr>
+            <% end %>
+            <td>
+              <%= date.day %>
+
+            　<%= expense = Expense.where(date: date).sum(:expense) %>
+              <%#= link_to "show", expense_path(expense.id) %>
+
+            </td>
+            <% if date.wday == 6 %>
+            </tr>
+            <% end %>
+        <% end %>
+      <% end %>
   <% end %>
 </table>
 
