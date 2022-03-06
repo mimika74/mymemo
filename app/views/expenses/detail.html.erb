@@ -1,15 +1,17 @@
-<% @calendar_data.each do |date| %>
+<%# @today %>
+
+<%# @expenses.each do |expense| %>
 
 <%# @expenses.each do |expense| %>
 
 
-<%= attachment_image_tag Expense.find_by(date: date), :image, :fill, 50, 50 %>
+<%#= attachment_image_tag Expense.find_by(date: date), :image, :fill, 50, 50 %>
 
 
 
-<%= link_to expense_path(Expense.find_by(date: date).id) do %>
-  ¥<%= Expense.where(date: date), :expense %>
-<% end %>
+<%#= link_to expense_path(Expense.find_by(date: date).id) do %>
+  <%#= expense = Expense.where(date: date), :expense %>
+<%# end %>
 
 
-<% end %>
+<%# #end %>

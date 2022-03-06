@@ -29,16 +29,23 @@ class ExpensesController < ApplicationController
     @expenses =Expense.all
   end
 
-  def detail
-    @today = Date.today
-    from_date = Date.new(@today.year, @today.month, @today.beginning_of_month.day).beginning_of_week(:sunday)
-    to_date = Date.new(@today.year, @today.month, @today.end_of_month.day).end_of_week(:sunday)
-    @calendar_data = from_date.upto(to_date)
+  #def detail
+    #@today = Date.today
+    #from_date = Date.new(@today.year, @today.month, @today.beginning_of_month.day).beginning_of_week(:sunday)
+    #to_date = Date.new(@today.year, @today.month, @today.end_of_month.day).end_of_week(:sunday)
+    #@calendar_data = from_date.upto(to_date)
 
     #@expense = Expense.find_by(date: )
-    @expense = Expense.find_by(params[:date])
-    @expenses =Expense.all
 
+    #@expenses = Expense.find_by(params[:date])
+    #@dates = @calendar_data
+  #end
+
+  def show
+    @date = @calendar_data
+
+    @expense =Expense.find(params[:id])
+    @expenses = Expense.where(date: @expense.date)
   end
 
   def edit
@@ -67,16 +74,7 @@ class ExpensesController < ApplicationController
     redirect_to expenses_path
   end
 
-  def show
 
-    @today = Date.today
-    from_date = Date.new(@today.year, @today.month, @today.beginning_of_month.day).beginning_of_week(:sunday)
-    to_date = Date.new(@today.year, @today.month, @today.end_of_month.day).end_of_week(:sunday)
-    @calendar_data = from_date.upto(to_date)
-
-    @expenses = Expense.all
-    @expense =Expense.find(params[:id])
-  end
 
   private
     def expense_params
