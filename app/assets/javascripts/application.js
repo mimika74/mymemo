@@ -17,10 +17,8 @@
 //= require turbolinks
 //= require_tree .
 
-//* require datimepicker
-$(function () {
-  $('#target').datepicker({
-    locale: 'ja',
-    format : 'YYYY-MM-DD'
+(document).ready(function () {
+  ('.lastMonth').on('click', function(){
+    (this).css('color','red');
   });
 });

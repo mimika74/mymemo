@@ -11,7 +11,7 @@
 <%= expense.memo %>
 
 
-<%= link_to "edit", edit_expense_path(date: expense.id) %>
+<%= link_to "edit", edit_expense_path(expense.id) %>
 
 <%= link_to "destroy", expense_path(expense.id), method: :delete %>
 

@@ -1,6 +1,12 @@
 
+<%= link_to "new", expenses_path(:year => 2022, :month => 2, :day => 3) %>
+
+<%= select_tag('name', options_for_select([['年',1], ['月',2], ['日',3]]))%>
+
 <%= link_to "new", new_expense_path %>
 
+<div class="lastMonth">前の月</div>
+<div class="nextMonth">次の月</div>
 <p><%= @today.strftime("< %m / %Y >") %></p>
 <table>
   <tr>

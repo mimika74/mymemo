@@ -18,8 +18,10 @@ class ExpensesController < ApplicationController
 
   def index
     #@expenses = current_user.expenses.all
-
-    @today = Date.today
+    year = params[:year].to_i
+    month = params[:month].to_i
+    day = params[:day].to_i
+    @today = Date.new(year, month, day)
     from_date = Date.new(@today.year, @today.month, @today.beginning_of_month.day).beginning_of_week(:sunday)
     to_date = Date.new(@today.year, @today.month, @today.end_of_month.day).end_of_week(:sunday)
     @calendar_data = from_date.upto(to_date)
