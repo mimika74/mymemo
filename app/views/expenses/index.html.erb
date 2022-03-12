@@ -1,9 +1,16 @@
 
-<%= link_to "new", expenses_path(:year => 2022, :month => 2, :day => 3) %>
+<%= link_to "カレンダー切り替え", expenses_path(:year => 2022, :month => 1, :day => 1) %>
 
-<%= select_tag('name', options_for_select([['年',1], ['月',2], ['日',3]]))%>
+<%= select_tag('name', options_for_select([['年', :year], ['月', :month], ['日', :day]]))%>
+<%#= link_to "カレンダー切替え", expenses_path(:year => year, :month => month, :day => day) %>
+<%#= date_select(:month ,use_month_numbers: true, start_year: 2020, end_year: Time.now.year, prompt:"--")%>
+<form action="/expenses" method="get">
+  <input type="color" name="month">
+  <button class="btn">Send</button>
+</form>
 
-<%= link_to "new", new_expense_path %>
+
+<%= link_to "新規投稿", new_expense_path %>
 
 <div class="lastMonth">前の月</div>
 <div class="nextMonth">次の月</div>
