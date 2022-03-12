@@ -20,21 +20,21 @@ class ExpensesController < ApplicationController
     #@expenses = current_user.expenses.all
     #@today = Date.new(year, month, day)today
     @today = Date.today
-
-    if !params[:month].empty?
+    if !params[:month].nil?
       monthSelected = params[:month].split("-")
       year = monthSelected[0].to_i
       month = monthSelected[1].to_i
       @today = Date.new(year, month)
     end
-
     from_date = Date.new(@today.year, @today.month, @today.beginning_of_month.day).beginning_of_week(:sunday)
     to_date = Date.new(@today.year, @today.month, @today.end_of_month.day).end_of_week(:sunday)
     @calendar_data = from_date.upto(to_date)
 
     #@expense = Expense.find_by(date: )
-    @expense = Expense.find_by(params[:date])
-    @expenses =Expense.all
+    #@expense = Expense.find_by(params[:date])
+    #@expenses =Expense.all
+  
+
   end
 
   #def detail
@@ -86,7 +86,7 @@ class ExpensesController < ApplicationController
 
   private
     def expense_params
-      params.require(:expense).permit(:user_id, :genre_id, :expense, :image, :memo, :target_month, :created_at, :updated_at, :date)
+      params.require(:expense).permit(:user_id, :genre_id, :expense, :image, :memo, :target_month, :date)
     end
 
 end
