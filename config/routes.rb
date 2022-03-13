@@ -4,9 +4,12 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   root to: 'homes#top'
 
-  #get '/expenses_detail' => 'expenses#detail'
+  get '/expenses_list' => 'expenses#list'
+  get '/expenses_album' => 'expenses#album'
+  get '/expenses_favorite' => 'expenses#favorite', as: :expense_favorites
+
   resources :expenses do
-    resource :favorites, only: [:create, :destroy, :index]
+    resource :favorites, only: [:create, :destroy]
   end
 
   get 'user/unsubscribe' => 'users#unsubscribe'

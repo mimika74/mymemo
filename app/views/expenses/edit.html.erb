@@ -1,2 +1,10 @@
-<h1>Expenses#edit</h1>
-<p>Find me in app/views/expenses/edit.html.erb</p>
+
+ <%= form_with model: @expense, url: expense_path, local:true do |f| %>
+<center>
+memoの編集
+   <p>¥<%= f.text_field :expense, autofocus:true, id:"inputExpense",placeholder:"Expense" %></p>
+   <p><%= f.attachment_field :image, placeholder: "ファイルを選択" %></p>
+   <p><%= f.text_area :memo, autofocus:true, id:"inputMemo", placeholder:"Memo" %></p>
+   <%= f.submit "変更を保存", class: "btn btn-success" %>
+</center>
+ <% end %>

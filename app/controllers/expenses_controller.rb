@@ -33,7 +33,7 @@ class ExpensesController < ApplicationController
     #@expense = Expense.find_by(date: )
     #@expense = Expense.find_by(params[:date])
     #@expenses =Expense.all
-  
+
 
   end
 
@@ -57,19 +57,20 @@ class ExpensesController < ApplicationController
   end
 
   def edit
-    @expense = Expense.find_by(params[:date])
-    if @user == current_user
-      render :edit
-    else
-      redirect_to "/"
-    end
+    @expense = Expense.find(params[:id])
+    #if @user == current_user
+      #render :edit
+    #else
+      #redirect_to "/"
+   # end
 
 
   end
 
   def update
     @expense = Expense.find(params[:id])
-    if @expense.update(user_params)
+    @expense.update(expense_params)
+    if @expense.save
       redirect_to expense_path(@expense.id)
     else
       render :edit
