@@ -1,0 +1,9 @@
+<center>
+<% @expenses.each do |expense| %>
+
+   <%= link_to expense_path(expense.id) do %>
+     <%= attachment_image_tag expense, :image, :fill, 300, 300, format: 'jpeg', fallback: "" %>
+   <% end %>
+
+ <% end %>
+</center>

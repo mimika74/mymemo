@@ -5,6 +5,7 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
+    <script src="https://kit.fontawesome.com/b805f4612c.js" crossorigin="anonymous"></script>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
 
@@ -15,9 +16,10 @@
       <li>
         <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
         <%= link_to "レポート", aggregates_path %>
-        <%= link_to "出金リスト", expenses_path %>
-        <%= link_to "アルバム", expenses_path %>
+        <%= link_to "出金リスト", expenses_list_path %>
+        <%= link_to "アルバム", expenses_album_path %>
         <%= link_to "お気に入り", expense_favorites_path %>
+        <i class="fa fa-star"></i>
       </li>
     <% else %>
       <li>

@@ -3,22 +3,22 @@
 <table>
 <% @expenses.each do |expense| %>
 
+    <tr>
+    <td>
+    <%= attachment_image_tag expense, :image, :fill, 300, 300, format: 'jpeg', fallback: "" %>
 
-<tr>
-<td>
+    <p>¥<%= expense.expense %></p>
+    <p><%= expense.memo %></p>
 
+    <div id ="likes_buttons_<%= expense.id %>" >
+        <%= render 'favorites/like', expense: @expense %>
+    </div>
 
-<%= attachment_image_tag expense, :image, :fill, 300, 300, format: 'jpeg', fallback: "" %>
+    <%= link_to "編集", edit_expense_path(expense) %>
 
-<p>¥<%= expense.expense %></p>
-<p><%= expense.memo %></p>
-
-
-<%= link_to "編集", edit_expense_path(expense) %>
-
-<%= link_to "削除", expense_path(expense.id), method: :delete %>
-</td>
-</tr>
+    <%= link_to "削除", expense_path(expense.id), method: :delete %>
+    </td>
+    </tr>
 <% end %>
 </table>
 </center>

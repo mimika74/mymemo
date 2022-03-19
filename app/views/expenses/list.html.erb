@@ -1,0 +1,10 @@
+<center>
+<% @expenses.each do |expense| %>
+<p><%= expense.date %></p>
+<p>¥<%= expense.expense %></p>
+<p><%= expense.memo %></p>
+
+ <%= link_to "詳細へ",expense_path(expense.id) %>
+
+ <% end %>
+</center>

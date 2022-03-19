@@ -10,6 +10,12 @@ class Expense < ApplicationRecord
     Expense.find_by(date: date).image
   end
 
+  def favorited_by?
+    favorite.present?
+  end
+
+
+
 
 
 end
