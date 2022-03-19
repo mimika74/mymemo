@@ -17,8 +17,3 @@
 //= require turbolinks
 //= require_tree .
 
-(document).ready(function () {
-  ('.lastMonth').on('click', function(){
-    (this).css('color','red');
-  });
-});

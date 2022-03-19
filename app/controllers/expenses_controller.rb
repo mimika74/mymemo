@@ -82,8 +82,7 @@ class ExpensesController < ApplicationController
     @expenses = Expense.all
   end
 
-  def favorite
-  end
+
 
 
 

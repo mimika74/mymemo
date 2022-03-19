@@ -1,11 +1,11 @@
 <% if expense.favorited_by? %>
     <%#=link_to expense_favorites_path(expense_id: expense.id, id: expense.id), method: :delete, remote: true do%>
-    <%= link_to expense_favorites_path(expense), method: :post, remote: true do%>
-      <i class="fa fa-star" aria-hidden="true"></i>
+    <%= link_to destroy_favorite_path(expense), method: :delete, remote: true do %>
+      <i class="fas fa-star"></i>
     <% end %>
 
 <% else %>
-    <%=link_to expense_favorites_path(expense), method: :delete, remote: true do%>
-      <i class="fa-regular fa-star" aria-hidden="true"></i>
+    <%=link_to create_favorite_path(expense), method: :post, remote: true do %>
+      <i class="far fa-star" aria-hidden="true"></i>
     <% end %>
 <% end%>
