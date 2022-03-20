@@ -10,7 +10,7 @@ class ExpensesController < ApplicationController
   def create
     @expense = Expense.new(expense_params)
     @expense.user_id = current_user.id
-    @expense.genre_id = 1
+    #@expense.genre_id = 1
     @expense.save!
       redirect_to expenses_path
 

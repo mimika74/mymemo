@@ -20,6 +20,7 @@
         <%= link_to "出金リスト", expenses_list_path %>
         <%= link_to "アルバム", expenses_album_path %>
         <%= link_to "お気に入り", expenses_favorite_expenses_path %>
+        <%= link_to "お問い合わせ", inquiries_new_path %>
 
         <%= form_with url: search_expenses_path, method: :get, local: true do |form| %>
           <%= form.text_field :search %>

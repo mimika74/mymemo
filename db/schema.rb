@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_03_12_070342) do
+ActiveRecord::Schema.define(version: 2022_03_20_095615) do
 
   create_table "aggregates", force: :cascade do |t|
     t.integer "user_id"
@@ -42,6 +42,13 @@ ActiveRecord::Schema.define(version: 2022_03_12_070342) do
 
   create_table "genres", force: :cascade do |t|
     t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "inquiries", force: :cascade do |t|
+    t.string "email"
+    t.text "message"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

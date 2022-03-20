@@ -1,0 +1,15 @@
+<%= form_with model: @inquiry, url: inquiries_create_path, local:true do |f| %>
+
+  <div class="form-group">
+    <%= f.label :email, '返信先メールアドレス' %>
+    <p><%= f.text_field :email, class: 'form-control' %></p>
+  </div>
+
+ <div class="form-group">
+   <p><%= f.label :message, 'お問い合わせ内容' %></p>
+   <p><%= f.text_area :message, size: '20x3', class: 'form-control' %></p>
+ </div>
+
+  <%= f.submit '送信' %>
+
+<% end %>
