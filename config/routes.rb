@@ -6,12 +6,15 @@ Rails.application.routes.draw do
 
   get '/expenses_list' => 'expenses#list'
   get '/expenses_album' => 'expenses#album'
-  #get '/expenses_favorite' => 'expenses#favorite', as: :expense_favorites
+
   post 'favorite/:id' => 'favorites#create', as: 'create_favorite'
   delete 'favorite/:id' => 'favorites#destroy', as: 'destroy_favorite'
+  #get '/expenses_favorite' => 'favorites#index', on: :collection
 
   resources :expenses do
     #resource :favorites, only: [:create, :destroy]
+    get '/expenses_favorite' => 'favorites#index', on: :collection
+    get :search, on: :collection
   end
 
   get 'user/unsubscribe' => 'users#unsubscribe'

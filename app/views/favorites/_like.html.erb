@@ -1,6 +1,7 @@
 <% if expense.favorited_by? %>
     <%#=link_to expense_favorites_path(expense_id: expense.id, id: expense.id), method: :delete, remote: true do%>
     <%= link_to destroy_favorite_path(expense), method: :delete, remote: true do %>
+
       <i class="fas fa-star"></i>
     <% end %>
 

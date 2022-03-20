@@ -1,2 +1,11 @@
-<h1>Favorites#index</h1>
-<p>Find me in app/views/favorites/index.html.erb</p>
+<center>
+<% if @favorite_list.present? %>
+    <% @favorite_list.each do |expense| %>
+
+    <%= attachment_image_tag expense, :image, :fill, 300, 300, format: 'jpeg', fallback: "" %>
+    <p>¥<%= expense.expense %></p>
+    <p><%= expense.memo %></p>
+
+    <% end %>
+<% end %>
+</center>

@@ -1,12 +1,14 @@
 <center>
-    <%= @expense.date %>のmemo
+
 <table>
 <% @expenses.each do |expense| %>
 
     <tr>
     <td>
     <%= attachment_image_tag expense, :image, :fill, 300, 300, format: 'jpeg', fallback: "" %>
-
+    </td>
+    <td>
+    <%= expense.date %>のmemo
     <p>¥<%= expense.expense %></p>
     <p><%= expense.memo %></p>
 
@@ -22,5 +24,3 @@
 <% end %>
 </table>
 </center>
-
-
