@@ -6,6 +6,7 @@
     <%= csp_meta_tag %>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <script src="https://kit.fontawesome.com/b805f4612c.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="stylesheets/style.css" />
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
 
@@ -16,11 +17,7 @@
     <header class ="border-bottom">
 
      <% if user_signed_in? %>
-     <span class="nav_toggle">
-        <i></i>
-        <i></i>
-        <i></i>
-    </span>
+
         <%#= link_to "ログアウト", destroy_user_session_path, method: :delete %>
         <%#= link_to "レポート", aggregates_path %>
         <%#= link_to "出金リスト", expenses_list_path %>
@@ -28,22 +25,33 @@
         <%#= link_to "お気に入り", expenses_favorite_expenses_path %>
         <%#= link_to "お問い合わせ", inquiries_new_path %>
         <%#= link_to "マイページ", user_my_page_path(current_user) %>
+        <div class="m-2">
+        <%= link_to "TOP", expenses_path, class: 'btn btn-success' %></div>
+        <div id="sp-menu">
 
-        <%= link_to "TOP", expenses_path %>
-        <nav class="nav">
-     　　 <ul class="nav_menu_ul">
-     　 <l
-        <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
-        <%= link_to "レポート", aggregates_path %>
-        <%= link_to "出金リスト", expenses_list_path %>
-        <%= link_to "アルバム", expenses_album_path %>
-        <%= link_to "お気に入り", expenses_favorite_expenses_path %>
-        <%= link_to "お問い合わせ", inquiries_new_path %>
-        <%= link_to "マイページ", user_my_page_path(current_user) %>
-        <div class="mt-2">
+            <ul>
+              <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></li>
+              <li><%= link_to "レポート", aggregates_path %></li>
+              <li><%= link_to "出金リスト", expenses_list_path %></li>
+              <li><%= link_to "アルバム", expenses_album_path %></li>
+              <li><%= link_to "お気に入り", expenses_favorite_expenses_path %></li>
+              <li><%= link_to "お問い合わせ", inquiries_new_path %></li>
+              <li><%= link_to "設定", user_my_page_path(current_user) %></li>
+            </ul>
+
+        </div>
+         <div id="hm-icon">
+          <a class="menu-trigger" href="#">
+            <span></span>
+            <span></span>
+            <span></span>
+          </a>
+        </div>
+
+        <div class="m-2">
         <%= form_with url: search_expenses_path, method: :get, local: true do |form| %>
           <%= form.text_field :search %>
-          <%= form.submit :search %>
+          <%= form.submit :search  %>
         <% end %>
         </div>
       </ul>
@@ -58,6 +66,9 @@
   </header>
 
     <%= yield %>
+
+    <script src="javascripts/jquery.min.js"></script>
+    <script src="javascripts/script.js"></script>
   </body>
 
 
