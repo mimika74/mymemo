@@ -1,8 +1,9 @@
 
 今週
 
-先週
+先週 <%= @lastWeekSum %>
 
-今月
 
-先月<%= expense = Expense.where(date: last_month).sum(:expense) %>
+今月<%= @monthSum %>
+
+先月<%= @aggregate  %>

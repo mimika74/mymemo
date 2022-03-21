@@ -17,8 +17,8 @@ class ExpensesController < ApplicationController
   end
 
   def index
-
-
+      
+      @expense.user_id = Expense.current_user.id
       #@expenses = current_user.expenses.all
       #@today = Date.new(year, month, day)today
       @today = Date.today

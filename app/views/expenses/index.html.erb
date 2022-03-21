@@ -13,10 +13,20 @@
 </form>
 
 
-<%= link_to "新規投稿", new_expense_path %>
+<%= link_to "新規投稿", new_expense_path, class: "btn btn-success" %>
 
-<div class="lastMonth">前の月</div>
-<div class="nextMonth">次の月</div>
+
+
+<form action="/expenses" method="get">
+  <input type="date" name="month">
+  <button class="btn btn-primary">前の月</button>
+</form>
+
+<form action="/expenses" method="get">
+  <input type="date" name="month">
+  <button class="btn btn-primary">次の月</button>
+</form>
+
 <center>
 <p><%= @today.strftime("< %m / %Y >") %></p>
 <table width="60%">
@@ -52,7 +62,7 @@
             <td>
               <%= date.day %>
 
-              <%= link_to expense_path(Expense.find_by(date: date).id) do %>
+              <%= link_to expense_path(Expense.where(user_id: current_user.id).find_by(date: date).id) do %>
               <%#= link_to expenses_detail_path do %>
               <%= attachment_image_tag Expense.find_by(date: date), :image, :fill, 50, 50 %>
               <% end %>
