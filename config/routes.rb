@@ -1,8 +1,10 @@
 Rails.application.routes.draw do
+  devise_for :users
+  get 'user/:id/edit' => 'users#edit', as: :edit_user
 
   get 'inquiries/new'
   post 'inquiries/create'
-  devise_for :users
+
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   root to: 'homes#top'
 
@@ -19,9 +21,14 @@ Rails.application.routes.draw do
     get :search, on: :collection
   end
 
+
+  patch 'user/:id' => 'users#update'
+  delete 'user/withdraw' => 'users#withdraw'
   get 'user/unsubscribe' => 'users#unsubscribe'
-  resources :users, only: [:show, :edit, :update]
-  resources :genres, only: [:index, :create, :edit, :update]
+  get 'user/my_page' => 'users#show'
+
+  #resources :users, only: [:show, :edit, :update]
+  #resources :genres, only: [:index, :create, :edit, :update]
   resources :aggregates, only: [:index, :create, :update]
 
 

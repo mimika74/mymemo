@@ -1,0 +1,13 @@
+<center>
+<div class="mt-5">
+<p><strong>本当に退会しますか？</strong></p></div>
+<div class="mt-5">
+<p>退会すると、</p>
+<p>これまでの投稿が閲覧できなくなります。</p>
+<p>退会する場合は、「退会」するをクリックしてください。</p>
+<div class="mt-3">
+<%= link_to "退会しない",  user_my_page_path(current_user), class: 'btn btn-primary' %>
+<%= link_to "退会する", user_withdraw_path(current_user), method: :delete, class: 'btn btn-danger' %>
+</div>
+</div>
+</center>

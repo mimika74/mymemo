@@ -3,6 +3,7 @@ class Expense < ApplicationRecord
   belongs_to :user
   belongs_to :genre
   has_one :favorite, dependent: :destroy
+  has_many :aggregates, dependent: :destroy
   attachment :image
 
 

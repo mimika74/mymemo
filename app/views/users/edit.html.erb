@@ -1,2 +1,9 @@
-<h1>Users#edit</h1>
-<p>Find me in app/views/users/edit.html.erb</p>
+
+<%= form_with model: @user, url: edit_user_path, local:true do |f| %>
+
+  <%= f.text_field :nickname %>
+
+  <%= f.submit '名前の変更する', class: 'btn btn-success' %>
+
+
+<% end %>

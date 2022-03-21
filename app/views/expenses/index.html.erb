@@ -9,7 +9,7 @@
 
 <form action="/expenses" method="get">
   <input type="date" name="month">
-  <button class="btn">Send</button>
+  <button class="btn btn-primary">表示月を変える</button>
 </form>
 
 
@@ -19,7 +19,7 @@
 <div class="nextMonth">次の月</div>
 <center>
 <p><%= @today.strftime("< %m / %Y >") %></p>
-<table>
+<table width="60%">
   <tr>
     <% t('date.day_names').each do |day_name| %>
       <td>
@@ -27,16 +27,19 @@
       </td>
     <% end %>
   </tr>
+  <div class="h-110">
   <% @calendar_data.each do |date| %>
 
       <% if expense = Expense.where(date: date).empty? %>
         <% if date.wday == 0 %>
           <tr>
         <% end %>
+
         <td>
           <%= date.day %>
 
         </td>
+
         <% if date.wday == 6 %>
         </tr>
         <% end %>　　　　　<%#空白表示 %>
@@ -81,6 +84,7 @@
         <% end %>
       <% end %>
   <% end %>
+  </div>
 </table>
 
 </center>

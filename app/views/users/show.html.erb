@@ -1,2 +1,9 @@
-<h1>Users#show</h1>
-<p>Find me in app/views/users/show.html.erb</p>
+設定
+
+<%= @user.nickname %>さん
+
+<%= link_to "ニックネームを変更する", edit_user_path(@user) %>
+<%= link_to "パスワード変更する", edit_user_password_path %>
+
+<%= link_to "退会する", user_unsubscribe_path, class: 'btn btn-danger' %>
+
