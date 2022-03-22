@@ -14,20 +14,18 @@
 
 
 <%= link_to "新規投稿", new_expense_path, class: "btn btn-success" %>
-
-
-
-<form action="/expenses" method="get">
-  <input type="date" name="month">
-  <button class="btn btn-primary">前の月</button>
-</form>
-
-<form action="/expenses" method="get">
-  <input type="date" name="month">
-  <button class="btn btn-primary">次の月</button>
-</form>
-
 <center>
+<div class="container">
+<div class="row">
+  <div class="col mt-5">
+    <form action="/expenses" method="get">
+      <input type="hidden" name="month" value=<%=@previous%>>
+      <button class="btn btn-primary">＜</button>
+    </form>
+  </div>
+
+ <div class="col">
+
 <p><%= @today.strftime("< %m / %Y >") %></p>
 <table width="60%">
   <tr>
@@ -37,7 +35,7 @@
       </td>
     <% end %>
   </tr>
-  <div class="h-110">
+
   <% @calendar_data.each do |date| %>
 
       <% if expense = Expense.where(user_id: current_user.id).where(date: date).empty? %>
@@ -94,7 +92,16 @@
         <% end %>
       <% end %>
   <% end %>
-  </div>
-</table>
 
+</table>
+  </div>
+
+   <div class="col mt-5">
+      <form action="/expenses" method="get">
+        <input type="hidden" name="month" value=<%=@next%>>
+        <button class="btn btn-primary">＞</button>
+      </form>
+   </div>
+</div>
+</div>
 </center>

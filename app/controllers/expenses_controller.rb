@@ -17,8 +17,8 @@ class ExpensesController < ApplicationController
   end
 
   def index
-      
-      @expense.user_id = Expense.current_user.id
+
+      #@expense.user_id = Expense.current_user.id
       #@expenses = current_user.expenses.all
       #@today = Date.new(year, month, day)today
       @today = Date.today
@@ -31,6 +31,9 @@ class ExpensesController < ApplicationController
       from_date = Date.new(@today.year, @today.month, @today.beginning_of_month.day).beginning_of_week(:sunday)
       to_date = Date.new(@today.year, @today.month, @today.end_of_month.day).end_of_week(:sunday)
       @calendar_data = from_date.upto(to_date)
+      @previous =  Expense.get_previous_month(@today)
+
+      @next = Expense.get_next_month(@today)
 
       #@expense = Expense.find_by(date: )
       #@expense = Expense.find_by(params[:date])

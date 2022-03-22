@@ -14,6 +14,27 @@ class Expense < ApplicationRecord
   def favorited_by?
     favorite.present?
   end
+  
+  def self.get_previous_month(today)
+    previous_month = today.month-1
+    previous_year = today.year
+    if previous_month == 0
+      previous_month = 12
+      previous_year-=1
+    end
+    Date.new(previous_year,previous_month)
+  end
+  
+  def self.get_next_month(today)
+    next_month = today.month + 1
+    next_year = today.year
+    if next_month == 13
+      next_month = 1
+      next_year+=1
+    end
+    Date.new(next_year,next_month)
+  end
+
 
 
 

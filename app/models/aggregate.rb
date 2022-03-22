@@ -5,7 +5,7 @@ class Aggregate < ApplicationRecord
 
   def last_month
     Date.today.last_month.all_month
-    
+
   end
 
 end
