@@ -1,26 +1,47 @@
-<center>
-    <%= @expense.date %>のmemo
-<table>
-<% @expenses.each do |expense| %>
+<div class="container">
+  <div class="row">
+   <h5><div class = "bg-light mt-4 col-12 md-6">
+       メモ詳細</div></h5>
+   </div>
 
-    <tr>
-    <td>
-    <%= attachment_image_tag expense, :image, :fill, 300, 300, format: 'jpeg', fallback: "" %>
+    <center>
 
-    <p>¥<%= expense.expense %></p>
-    <p><%= expense.memo %></p>
+        <%= @expense.date %>のメモ
+    </center>
+ <center>
 
-    <div id ="likes_buttons_<%= expense.id %>" >
-        <%= render 'favorites/like', expense: expense %>
+        <div class="card w-50 mx-auto mt-4 shadow-lg">
+        <div class="card-body">
+    <table>
+    <% @expenses.each do |expense| %>
+
+        <tr>
+        <td>
+        <%= attachment_image_tag expense, :image, :fill, 300, 300, format: 'jpeg', fallback: "" %>
+         </td>
+        <td>
+        <div class="col">
+            <p>¥<%= expense.expense %></p>
+            <p><%= expense.memo %></p>
+            <div id ="likes_buttons_<%= expense.id %>" >
+                <%= render 'favorites/like', expense: expense %>
+            </div>
+            <div class="mt-3">
+            <%= link_to "編集", edit_expense_path(expense), class: "btn btn-outline-secondary" %>
+
+            <%= link_to "削除", expense_path(expense.id), method: :delete, class: "btn btn-outline-secondary" %></div>
+
+        </td>
+        </tr>
+
     </div>
 
-    <%= link_to "編集", edit_expense_path(expense) %>
-
-    <%= link_to "削除", expense_path(expense.id), method: :delete %>
-    </td>
-    </tr>
-<% end %>
-</table>
+    <% end %>
+    </div>
+    </div>
+    </table>
+    </div>
 </center>
+
 
 

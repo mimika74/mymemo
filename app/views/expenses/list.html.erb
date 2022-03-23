@@ -1,10 +1,21 @@
-<center>
-<% @expenses.each do |expense| %>
-<p><%= expense.date %></p>
-<p>¥<%= expense.expense %></p>
-<p><%= expense.memo %></p>
+<div class="container">
+  <div class="row">
+   <h5><div class = "bg-light mt-4 col-12 md-6">
+       出金リスト</div></h5>
+   </div>
+<div class="card-list-container py-5">
 
- <%= link_to "詳細へ",expense_path(expense.id) %>
+  <% @expenses.each do |expense| %>
+   <div class="card w-50 mx-auto mt-4 shadow-lg">
+    <div class="card-body">
+      <div class="row">
 
- <% end %>
-</center>
+       <div class="col-2"><%= expense.date %></div>
+       <div class="col-2">¥<%= expense.expense %></div>
+       <div class="col-6"><%= truncate(expense.memo, length: 18,　omission: "…") %></div>
+       <div class="col-2"><%= link_to "詳細",expense_path(expense.id), class: "btn btn-secondary" %></div>
+      </div>
+    </div>
+  </div>
+   <% end %>
+</div>

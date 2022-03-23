@@ -34,13 +34,14 @@
 
             <ul>
 
-              <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></li>
+
               <li><%= link_to "レポート", aggregates_path %></li>
               <li><%= link_to "出金リスト", expenses_list_path %></li>
               <li><%= link_to "アルバム", expenses_album_path %></li>
               <li><%= link_to "お気に入り", expenses_favorite_expenses_path %></li>
               <li><%= link_to "お問い合わせ", inquiries_new_path %></li>
               <li><%= link_to "設定", user_my_page_path(current_user) %></li>
+              <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></li>
             </ul>
 
         </div>

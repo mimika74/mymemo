@@ -1,5 +1,11 @@
+<div class="container">
+  <center>
 
-<%= form_with model: @user, url: edit_user_path, local:true do |f| %>
+   <h5><div class = "bg-light mt-4 col-2 mx-6">
+      ニックネームの変更
+    </div>
+    </div>
+<%= form_with model: @user, url: update_user_path, local:true do |f| %>
 
   <%= f.text_field :nickname %>
 

@@ -1,7 +1,7 @@
 class Expense < ApplicationRecord
 
   belongs_to :user
-  belongs_to :genre
+
   has_one :favorite, dependent: :destroy
   has_many :aggregates, dependent: :destroy
   attachment :image
@@ -14,7 +14,7 @@ class Expense < ApplicationRecord
   def favorited_by?
     favorite.present?
   end
-  
+
   def self.get_previous_month(today)
     previous_month = today.month-1
     previous_year = today.year
@@ -24,7 +24,7 @@ class Expense < ApplicationRecord
     end
     Date.new(previous_year,previous_month)
   end
-  
+
   def self.get_next_month(today)
     next_month = today.month + 1
     next_year = today.year

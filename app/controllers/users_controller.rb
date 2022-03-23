@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
 
-  before_action :authenticate_user!
+  before_action :authenticate_user!, except: [:withdraw]
 
   def show
     @user = current_user
@@ -21,7 +21,7 @@ class UsersController < ApplicationController
 
     if @user.update(user_params)
 
-    redirect_to user_path
+    redirect_to user_my_page_path
     else
     render :edit
     end
@@ -33,8 +33,9 @@ class UsersController < ApplicationController
   end
 
   def withdraw
-    user = User.find(params[:id])
-    user.destroy
+    #user = User.find(params[:id])
+    @user = current_user
+    @user.destroy
     reset_session
     redirect_to root_path, alert: "ご利用誠にありがとうございました。"
 

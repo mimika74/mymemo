@@ -1,11 +1,22 @@
+<div class="container">
+  <div class="row">
+   <h5><div class = "bg-light mt-4 col-12 md-6">
+       お気に入り</div></h5>
+   </div>
 <center>
+<div class="d-flex flex-row flex-wrap mx-5 mt-5">
 <% if @favorite_list.present? %>
     <% @favorite_list.each do |expense| %>
+    <div class="card  shadow-lg">
+        <div class="d-flex flex-row flex-column flex-wrap">
 
     <%= attachment_image_tag expense, :image, :fill, 300, 300, format: 'jpeg', fallback: "" %>
     <p>¥<%= expense.expense %></p>
-    <p><%= expense.memo %></p>
+    <p><%= truncate(expense.memo, length: 18,　omission: "…") %></p>
+    </div>
+    </div>
 
     <% end %>
 <% end %>
+</div>
 </center>

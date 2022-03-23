@@ -1,24 +1,49 @@
+<div class="container">
+  <center>
 
+   <h5><div class = "bg-light mt-4 col-2 mx-6">
+    メモ</div></h5>
+
+    </center>
+
+ <div class="mt-5 col-12  mx-6">
 <%= form_with model: @expense, local:true do |f| %>
 
-  <p>￥<%= f.text_field :expense %></p>
-  <p><%= f.attachment_field :image %></p>
-  <p><%= f.text_area :memo %></p>
-  <p></p>
-   <%= f.date_field :date, class:"form-control" %>
-  <!--<div class="form-group col-sm-8">-->
-    <%#= reservation.label :date, class:"left-border" %>
-    <!--<span class="required_mark">*</span>
-    <div class="input-group">
-     <input type="text" id="target">
+<div class ="row">
+    <label for="id" class="col-sm-4 mb-4 text-right">出費</label>
+    <div class="col-sm-8">
+  ￥<%= f.text_field :expense %></div>
+  </div>
 
+  <div class ="row">
+    <label for="id" class="col-sm-4 mb-4 text-right">写真</label>
+      <div class="mx-3">
+       <div class="item_image_btn">
+        <%= f.attachment_field :image, id: "file" %></div>
+   <div id="img_field" onClick="$('#file').click()" >
+    画像選択
+    </div>
+  </div>
+  </div>
 
-        <span class="input-group-addon">
-            <span class="glyphicon glyphicon-calendar"></span>
-        </span>
-    </div>-->
-
-
-
-  <p><%= f.submit 'memoする' %></p>
+  <div class ="row">
+    <label for="id" class="col-sm-4 mb-4 text-right">備考</label>
+    <div class="col-sm-8">
+   <%= f.text_area :memo %></div>
+    </div>
+  <div class ="row mt-2">
+    <label for="id" class="col-sm-4 mb-4 text-right">日付</label>
+    <div class="col-sm-8">
+   <%= f.date_field :date%>
+   </div>
+  </div>
+  <div class ="row mt-3">
+    <label for="id" class="col-sm-4 mb-4 text-right"></label>
+    <div class="col-sm-8">
+  <%= f.submit 'メモする', class: "btn btn-outline-secondary" %> </div>
+  </div>
 <% end %>
+
+</div>
+</div>
+</div>

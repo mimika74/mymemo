@@ -1,9 +1,18 @@
-設定
+<div class="container">
+<div class ="row">
+    <div class="mt-5 mx-3">
+    <p><strong>
+    ようこそ、<%= @user.nickname %>さん</strong></p></div>
+    </div>
+<div class ="row">
+<div class="mt-3">
 
-<%= @user.nickname %>さん
+<%= link_to "ニックネームを変更する", edit_user_path(@user), class: "btn btn-outline-success" %>
+<%#= link_to "パスワード変更する", edit_user_password_path %>
 
-<%= link_to "ニックネームを変更する", edit_user_path(@user) %>
-<%= link_to "パスワード変更する", edit_user_password_path %>
+<%= link_to "退会する", user_unsubscribe_path, class: 'btn btn-outline-danger' %>
+</div>
+</div>
+</div>
 
-<%= link_to "退会する", user_unsubscribe_path, class: 'btn btn-danger' %>
 

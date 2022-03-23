@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
   devise_for :users
   get 'user/:id/edit' => 'users#edit', as: :edit_user
+  patch 'user/:id' => 'users#update', as: :update_user
+  delete 'user/withdraw' => 'users#withdraw'
+  get 'user/unsubscribe' => 'users#unsubscribe'
+  get 'user/my_page' => 'users#show'
 
   get 'inquiries/new'
   post 'inquiries/create'
@@ -22,10 +26,7 @@ Rails.application.routes.draw do
   end
 
 
-  patch 'user/:id' => 'users#update'
-  delete 'user/withdraw' => 'users#withdraw'
-  get 'user/unsubscribe' => 'users#unsubscribe'
-  get 'user/my_page' => 'users#show'
+
 
   #resources :users, only: [:show, :edit, :update]
   #resources :genres, only: [:index, :create, :edit, :update]

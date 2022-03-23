@@ -1,9 +1,20 @@
+<div class="container">
+  <div class="row">
+   <h5><div class = "bg-light mt-4 col-12 md-6">
+       アルバム</div></h5>
+   </div>
 <center>
+
+<div class="d-flex flex-row flex-wrap mx-5 mt-5">
 <% @expenses.each do |expense| %>
-
+<div class="card  shadow-lg">
+<div class="d-flex flex-row flex-column flex-wrap">
    <%= link_to expense_path(expense.id) do %>
-     <%= attachment_image_tag expense, :image, :fill, 300, 300, format: 'jpeg', fallback: "" %>
+     <%= attachment_image_tag expense, :image, :fill, 200, 200, format: 'jpeg', fallback: "" %>
    <% end %>
-
+</div>
+</div>
  <% end %>
+
+ </div>
 </center>
