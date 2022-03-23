@@ -1,0 +1,113 @@
+<%#= link_to "カレンダー切り替え", expenses_path(:year => 2022, :month => 1, :day => 1) %>
+
+<%#= select_tag('name', options_for_select([['年', :year], ['月', :month], ['日', :day]]))%>
+<%#= link_to "カレンダー切替え", expenses_path(:year => year, :month => month, :day => day) %>
+<%#= date_select(:month ,use_month_numbers: true, start_year: 2020, end_year: Time.now.year, prompt:"--")%>
+
+
+
+<%= link_to "メモ", new_expense_path, class: "btn btn-outline-primary" %>
+
+
+
+<center>
+
+
+<div class=container>
+  <div class="row">
+<div class="col-3 mt-5">
+    <form action="/expenses" method="get">
+      <input type="hidden" name="month" value=<%=@previous%>>
+      <button class="btn btn-outline-secondary">＜</button>
+    </form>
+  </div>
+  <div class="col-6 mt-5 mx-0 ">
+<%= @today.strftime("< %m / %Y >") %>
+</div>
+
+<div class="col-3 mt-5 mx-0">
+      <form action="/expenses" method="get">
+        <input type="hidden" name="month" value=<%=@next%>>
+        <button class="btn btn-outline-secondary">＞</button>
+      </form>
+   </div>
+</div>
+</div>
+<table width="60%">
+  <tr>
+    <% t('date.day_names').each do |day_name| %>
+      <td>
+        <%= day_name %>
+      </td>
+    <% end %>
+  </tr>
+
+  <% @calendar_data.each do |date| %>
+
+      <% if expense = Expense.where(user_id: current_user.id).where(date: date).empty? %>
+        <% if date.wday == 0 %>
+          <tr>
+        <% end %>
+
+        <td>
+          <%= date.day %>
+
+        </td>
+
+        <% if date.wday == 6 %>
+        </tr>
+        <% end %>　　　　　<%#空白表示 %>
+
+      <% else %>
+        <% if Expense.where(user_id: current_user.id).expense_image(date) %>
+            <% if date.wday == 0 %>
+              <tr>
+            <% end %>
+            <td>
+              <%= date.day %>
+
+              <%= link_to expense_path(Expense.where(user_id: current_user.id).find_by(date: date).id) do %>
+              <%#= link_to expenses_detail_path do %>
+              <%= attachment_image_tag Expense.where(user_id: current_user.id).find_by(date: date), :image, :fill, 50, 50 %>
+              <% end %>
+              <%#= link_to "show", expense_path(expense.id) %>
+
+            </td>
+            <% if date.wday == 6 %>
+            </tr>
+            <% end %>
+
+
+        <% else %>
+            <% if date.wday == 0 %>
+              <tr>
+            <% end %>
+            <td>
+              <%= date.day %>
+
+              <%= link_to expense_path(Expense.where(user_id: current_user.id).find_by(date: date).id) do %>
+              <%#= link_to expenses_detail_path do %>
+            　¥<%= expense = Expense.where(user_id: current_user.id).where(date: date).sum(:expense) %>
+            　<% end %>
+              <%#= link_to "show", expense_path(expense.id) %>
+
+            </td>
+            <% if date.wday == 6 %>
+            </tr>
+            <% end %>
+        <% end %>
+      <% end %>
+  <% end %>
+
+</table>
+    <div class="mt-5">
+    <form action="/expenses" method="get">
+      <input type="date" name="month">
+      <button class="btn btn-outline-secondary">月を変える</button>
+    </form>
+  </div>
+  </div>
+
+</div>
+</div>
+</center>

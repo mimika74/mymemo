@@ -38,8 +38,8 @@ class ExpensesController < ApplicationController
       #@expense = Expense.find_by(date: )
       #@expense = Expense.find_by(params[:date])
       #@expenses =Expense.all
-
-
+      
+      
   end
 
   def search
