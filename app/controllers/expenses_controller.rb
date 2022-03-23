@@ -3,7 +3,7 @@ class ExpensesController < ApplicationController
   before_action :authenticate_user!
 
   def new
-    @expense = Expense.new(expense_params)
+    @expense = Expense.new
 
   end
 

@@ -25,10 +25,15 @@
         <%#= link_to "お問い合わせ", inquiries_new_path %>
         <%#= link_to "マイページ", user_my_page_path(current_user) %>
         <div class="m-2">
-        <%= link_to "TOP", expenses_path, class: 'btn btn-success' %></div>
+        <%= link_to "TOP", root_path, class: 'btn btn-outline-secondary' %>
+        <%=link_to "カレンダー", expenses_path, class: 'btn btn-outline-success' %>
+        <%= link_to "メモ", new_expense_path, class: "btn btn-outline-primary" %>
+        </div>
+
         <div id="sp-menu">
 
             <ul>
+
               <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></li>
               <li><%= link_to "レポート", aggregates_path %></li>
               <li><%= link_to "出金リスト", expenses_list_path %></li>
@@ -55,12 +60,16 @@
         </div>
       </ul>
     <% else %>
-      <ul>
-        <%= link_to "新規登録", new_user_registration_path %>
-      </ul>
-      <ul>
-        <%= link_to "ログイン", new_user_session_path %>
-      </ul>
+        <div class="m-2 mt-1">
+        <%= link_to "TOP", root_path, class: 'btn btn-outline-secondary' %>
+
+        <ul class= "navbar-nav ml-auto  d-inline p-2 pl-2" >
+        <%= link_to "新規登録", new_user_registration_path, class: 'btn btn-outline-secondary' %>
+        <%= link_to "ログイン", new_user_session_path, class: 'btn btn-outline-secondary' %>
+        </ul>
+        </div>
+
+
     <% end %>
   </header>
 

@@ -7,26 +7,33 @@
 
 
 
-<form action="/expenses" method="get">
-  <input type="date" name="month">
-  <button class="btn btn-primary">表示月を変える</button>
-</form>
+<%= link_to "メモ", new_expense_path, class: "btn btn-outline-primary" %>
 
 
-<%= link_to "新規投稿", new_expense_path, class: "btn btn-success" %>
+
 <center>
-<div class="container">
-<div class="row">
-  <div class="col mt-5">
+
+
+<div class=container>
+  <div class="row">
+<div class="col-3 mt-5">
     <form action="/expenses" method="get">
       <input type="hidden" name="month" value=<%=@previous%>>
-      <button class="btn btn-primary">＜</button>
+      <button class="btn btn-outline-secondary">＜</button>
     </form>
   </div>
+  <div class="col-6 mt-5 mx-0 ">
+<%= @today.strftime("< %m / %Y >") %>
+</div>
 
- <div class="col">
-
-<p><%= @today.strftime("< %m / %Y >") %></p>
+<div class="col-3 mt-5 mx-0">
+      <form action="/expenses" method="get">
+        <input type="hidden" name="month" value=<%=@next%>>
+        <button class="btn btn-outline-secondary">＞</button>
+      </form>
+   </div>
+</div>
+</div>
 <table width="60%">
   <tr>
     <% t('date.day_names').each do |day_name| %>
@@ -94,14 +101,14 @@
   <% end %>
 
 </table>
+    <div class="mt-5">
+    <form action="/expenses" method="get">
+      <input type="date" name="month">
+      <button class="btn btn-outline-secondary">月を変える</button>
+    </form>
+  </div>
   </div>
 
-   <div class="col mt-5">
-      <form action="/expenses" method="get">
-        <input type="hidden" name="month" value=<%=@next%>>
-        <button class="btn btn-primary">＞</button>
-      </form>
-   </div>
 </div>
 </div>
 </center>
