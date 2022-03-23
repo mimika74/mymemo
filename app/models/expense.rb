@@ -3,7 +3,7 @@ class Expense < ApplicationRecord
   belongs_to :user
 
   has_one :favorite, dependent: :destroy
-  has_many :aggregates, dependent: :destroy
+  #has_many :aggregates, dependent: :destroy
   attachment :image
 
 
@@ -34,6 +34,19 @@ class Expense < ApplicationRecord
     end
     Date.new(next_year,next_month)
   end
+
+
+  validates :memo, {length: {maximum: 100}}
+  #validates :date, presence:ture
+
+  validates :expense, presence:true,
+    unless: :image.present?
+
+  validates :image, presence:true,
+    unless: :expense.present?
+
+
+
 
 
 

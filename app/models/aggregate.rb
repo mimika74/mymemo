@@ -1,11 +1,8 @@
 class Aggregate < ApplicationRecord
 
   belongs_to :user
-  belongs_to :expense
+  #belongs_to :expense
 
-  def last_month
-    Date.today.last_month.all_month
 
-  end
 
 end
