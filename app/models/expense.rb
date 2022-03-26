@@ -6,9 +6,7 @@ class Expense < ApplicationRecord
   #has_many :aggregates, dependent: :destroy
   attachment :image
 
-  validates :memo, {length: {maximum: 100}}
 
-  #validates :image, presense:true, on: :new
 
 
   def self.expense_image(date)
@@ -41,14 +39,21 @@ class Expense < ApplicationRecord
 
 
 
-  #validates :date, presence:ture
+  validates :date, presence:true
 
-  #validates :expense, presence:true,
-    #unless: :image.nil?
 
-  #validates :image, presence:true,
-    #unless: :expense.nil?
+  #validates :expense, presence: true, if: Proc.new { |expense| expense.image.present? }
 
+
+  validates :memo, {length: {maximum: 100}}
+
+  #validates :image, presense:true, on: :new
+  validates :hoge_or_fuga, presence: true
+
+  private
+    def hoge_or_fuga
+      expense.present? || image.present?
+    end
 
 
 

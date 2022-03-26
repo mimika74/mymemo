@@ -11,8 +11,11 @@ class ExpensesController < ApplicationController
     @expense = Expense.new(expense_params)
     @expense.user_id = current_user.id
     #@expense.genre_id = 1
-    @expense.save!
+    if @expense.save
       redirect_to expenses_path
+    else
+      render :new
+    end
 
   end
 
@@ -38,8 +41,8 @@ class ExpensesController < ApplicationController
       #@expense = Expense.find_by(date: )
       #@expense = Expense.find_by(params[:date])
       #@expenses =Expense.all
-      
-      
+
+
   end
 
   def search

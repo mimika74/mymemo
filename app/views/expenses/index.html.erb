@@ -23,7 +23,7 @@
     </form>
   </div>
   <div class="col-6 mt-5 mx-0 ">
-<%= @today.strftime("< %m / %Y >") %>
+<%= @today.strftime(" %Y年%-m月 ") %>
 </div>
 
 <div class="col-3 mt-5 mx-0">
@@ -103,7 +103,7 @@
 </table>
     <div class="mt-5">
     <form action="/expenses" method="get">
-      <input type="date" name="month">
+      <input type="month" name="month">
       <button class="btn btn-outline-secondary">月を変える</button>
     </form>
   </div>
