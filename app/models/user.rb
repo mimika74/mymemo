@@ -8,7 +8,7 @@ class User < ApplicationRecord
   has_many :aggregate, dependent: :destroy
   #has_one :favorite, dependent: :destroy
 
-  validates :name, {presence:true, length: {minimum:2, maximum: 20}, uniqueness: true}
+  validates :nickname, {presence:true, length: {minimum:2, maximum: 20}, uniqueness: true}
 
 
 end

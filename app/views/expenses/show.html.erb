@@ -10,18 +10,17 @@
     </center>
  <center>
 
-        <div class="card w-50 mx-auto mt-4 shadow-lg">
-        <div class="card-body">
-    <table>
+
     <% @expenses.each do |expense| %>
 
-        <tr>
-        <td>
+      <div class="card w-50 mx-auto mt-4 shadow-lg">
+      <div class="card-body">
+
+
         <%= attachment_image_tag expense, :image, :fill, 300, 300, format: 'jpeg', fallback: "" %>
-         </td>
-        <td>
+
         <div class="col">
-            <p>¥<%= expense.expense %></p>
+            <h5>¥<%= expense.expense %></h5>
             <p><%= expense.memo %></p>
             <div id ="likes_buttons_<%= expense.id %>" >
                 <%= render 'favorites/like', expense: expense %>
@@ -31,15 +30,13 @@
 
             <%= link_to "削除", expense_path(expense.id), method: :delete, class: "btn btn-outline-secondary" %></div>
 
-        </td>
-        </tr>
 
-    </div>
 
+        </div>
+       </div>
+       </div>
     <% end %>
-    </div>
-    </div>
-    </table>
+
     </div>
 </center>
 

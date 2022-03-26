@@ -6,6 +6,10 @@ class Expense < ApplicationRecord
   #has_many :aggregates, dependent: :destroy
   attachment :image
 
+  validates :memo, {length: {maximum: 100}}
+
+  #validates :image, presense:true, on: :new
+
 
   def self.expense_image(date)
     Expense.find_by(date: date).image
@@ -36,17 +40,14 @@ class Expense < ApplicationRecord
   end
 
 
-  validates :memo, {length: {maximum: 100}}
+
   #validates :date, presence:ture
 
-  validates :expense, presence:true,
-    unless: :image.present?
+  #validates :expense, presence:true,
+    #unless: :image.nil?
 
-  validates :image, presence:true,
-    unless: :expense.present?
-
-
-
+  #validates :image, presence:true,
+    #unless: :expense.nil?
 
 
 

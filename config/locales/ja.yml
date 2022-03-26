@@ -1,9 +1,17 @@
 ja:
-  day_names:
-     sunday: "日"
-     Mon: "月"
-     Tue: "火"
-     Wed: "水"
-     Thu: "木"
-     Fri: "金"
-     Sat: "土"
+  activerecord:
+    errors:
+      nickname: "ニックネーム"
+      email: "メールアドレス"
+      password: "パスワード"
+      password_confirmation: "確認用パスワード"
+    attributes:
+      user:
+       nickname: "ニックネーム"
+       email: "メールアドレス"
+       password: "パスワード"
+       password_confirmation: "確認用パスワード"
+
+
+    models:
+       user: "ユーザー"
