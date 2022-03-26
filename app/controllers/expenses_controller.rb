@@ -25,7 +25,7 @@ class ExpensesController < ApplicationController
       #@expenses = current_user.expenses.all
       #@today = Date.new(year, month, day)today
       @today = Date.today
-      if !params[:month].nil?
+      if params[:month].present?
         monthSelected = params[:month].split("-")
         year = monthSelected[0].to_i
         month = monthSelected[1].to_i
@@ -38,9 +38,12 @@ class ExpensesController < ApplicationController
 
       @next = Expense.get_next_month(@today)
 
+
+
       #@expense = Expense.find_by(date: )
       #@expense = Expense.find_by(params[:date])
       #@expenses =Expense.all
+
 
 
   end
@@ -99,6 +102,7 @@ class ExpensesController < ApplicationController
 
     @expenses = Expense.all
   end
+
 
 
 
