@@ -40,6 +40,7 @@ class Expense < ApplicationRecord
 
 
   validates :date, presence:true
+  validates :month, presence:true
 
 
   #validates :expense, presence: true, if: Proc.new { |expense| expense.image.present? }
@@ -48,10 +49,10 @@ class Expense < ApplicationRecord
   validates :memo, {length: {maximum: 100}}
 
   #validates :image, presense:true, on: :new
-  validates :hoge_or_fuga, presence: true
+  validates :expense_post, presence: true
 
   private
-    def hoge_or_fuga
+    def expense_post
       expense.present? || image.present?
     end
 
