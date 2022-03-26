@@ -40,7 +40,7 @@ class Expense < ApplicationRecord
 
 
   validates :date, presence:true
-  validates :month, presence:true
+
 
 
   #validates :expense, presence: true, if: Proc.new { |expense| expense.image.present? }
