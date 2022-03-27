@@ -9,8 +9,9 @@
     <% @favorite_list.each do |expense| %>
     <div class="card  shadow-lg">
         <div class="d-flex flex-row flex-column flex-wrap">
-
+    <%= link_to expense_path(expense.id) do %>
     <%= attachment_image_tag expense, :image, :fill, 300, 300, format: 'jpeg', fallback: "" %>
+    <% end %>
     <p>¥<%= expense.expense %></p>
     <p><%= truncate(expense.memo, length: 18,　omission: "…") %></p>
     </div>

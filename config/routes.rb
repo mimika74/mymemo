@@ -18,7 +18,7 @@ Rails.application.routes.draw do
   post 'favorite/:id' => 'favorites#create', as: 'create_favorite'
   delete 'favorite/:id' => 'favorites#destroy', as: 'destroy_favorite'
   #get '/expenses_favorite' => 'favorites#index', on: :collection
-
+  get 'expenses_aggregate' => 'expenses#aggregate', as: 'expense_aggregate'
   resources :expenses do
     #resource :favorites, only: [:create, :destroy]
     get '/expenses_favorite' => 'favorites#index', on: :collection
@@ -30,7 +30,7 @@ Rails.application.routes.draw do
 
   #resources :users, only: [:show, :edit, :update]
   #resources :genres, only: [:index, :create, :edit, :update]
-  resources :aggregates, only: [:index, :create, :update]
+  #resources :aggregates, only: [:index, :create, :update]
 
 
 

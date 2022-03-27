@@ -26,3 +26,13 @@ tr {
 td {
   width: 150px;
 }
+
+@media screen and (max-width:425px) {
+
+  .tr {
+    background-color: dark;
+
+    width: 100%;
+  }
+
+}

@@ -4,7 +4,8 @@
     <title>Mymemo</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <!--<#meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">-->
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <script src="https://kit.fontawesome.com/b805f4612c.js" crossorigin="anonymous"></script>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
@@ -17,13 +18,6 @@
 
      <% if user_signed_in? %>
 
-        <%#= link_to "ログアウト", destroy_user_session_path, method: :delete %>
-        <%#= link_to "レポート", aggregates_path %>
-        <%#= link_to "出金リスト", expenses_list_path %>
-        <%#= link_to "アルバム", expenses_album_path %>
-        <%#= link_to "お気に入り", expenses_favorite_expenses_path %>
-        <%#= link_to "お問い合わせ", inquiries_new_path %>
-        <%#= link_to "マイページ", user_my_page_path(current_user) %>
         <div class="m-2">
         <%= link_to "TOP", root_path, class: 'btn btn-outline-secondary' %>
         <%=link_to "カレンダー", expenses_path, class: 'btn btn-outline-success' %>
@@ -35,12 +29,12 @@
             <ul>
 
 
-              <li><%= link_to "レポート", aggregates_path,data: {"turbolinks"=>false} %></li>
-              <li><%= link_to "出金リスト", expenses_list_path,data: {"turbolinks"=>false} %></li>
-              <li><%= link_to "アルバム", expenses_album_path,data: {"turbolinks"=>false} %></li>
-              <li><%= link_to "お気に入り", expenses_favorite_expenses_path,data: {"turbolinks"=>false} %></li>
-              <li><%= link_to "お問い合わせ", inquiries_new_path,data: {"turbolinks"=>false} %></li>
-              <li><%= link_to "設定", user_my_page_path(current_user),data: {"turbolinks"=>false} %></li>
+              <li><%= link_to "レポート", expense_aggregate_path %></li>
+              <li><%= link_to "出金リスト", expenses_list_path %></li>
+              <li><%= link_to "アルバム", expenses_album_path %></li>
+              <li><%= link_to "お気に入り", expenses_favorite_expenses_path %></li>
+              <li><%= link_to "お問い合わせ", inquiries_new_path %></li>
+              <li><%= link_to "設定", user_my_page_path(current_user) %></li>
               <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></li>
             </ul>
 
@@ -78,6 +72,11 @@
 
 
   </body>
+
+<footer class="border-bottom mt-3">
+
+
+</footer>
 
 
 </html>
