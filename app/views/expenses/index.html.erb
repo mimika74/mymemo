@@ -29,7 +29,7 @@
    </div>
 </div>
 </div>
-<table width="60%">
+<table width="80%">
 
   <thead class="text-dark bg-light">
   <tr>
@@ -52,10 +52,13 @@
           <tr>
         <% end %>
 
-        <td>
+        <td style="vertical-align: top;">
+
           <%= date.day %>
 
+
         </td>
+
 
         <% if date.wday == 6 %>
         </tr>
@@ -66,12 +69,14 @@
             <% if date.wday == 0 %>
               <tr>
             <% end %>
-            <td>
+            <td style="vertical-align: top;">
               <%= date.day %>
 
               <%= link_to expense_path(Expense.where(user_id: current_user.id).find_by(date: date).id) do %>
               <%#= link_to expenses_detail_path do %>
+              <div class="image">
               <%= attachment_image_tag Expense.where(user_id: current_user.id).find_by(date: date), :image, :fill, 50, 50 %>
+              </div>
               <% end %>
               <%#= link_to "show", expense_path(expense.id) %>
 
@@ -85,16 +90,16 @@
             <% if date.wday == 0 %>
               <tr>
             <% end %>
-            <td>
+
+            <td style="vertical-align: top;">
               <%= date.day %>
-
               <%= link_to expense_path(Expense.where(user_id: current_user.id).find_by(date: date).id) do %>
-              <%#= link_to expenses_detail_path do %>
-            　¥<%= expense = Expense.where(user_id: current_user.id).where(date: date).sum(:expense) %>
-            　<% end %>
-              <%#= link_to "show", expense_path(expense.id) %>
 
+            　¥<%= expense = Expense.where(user_id: current_user.id).where(date: date).sum(:expense) %>
+
+            　<% end %>
             </td>
+
             <% if date.wday == 6 %>
             </tr>
             <% end %>

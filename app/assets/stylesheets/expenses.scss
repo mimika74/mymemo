@@ -27,12 +27,21 @@ td {
   width: 150px;
 }
 
-@media screen and (max-width:425px) {
 
-  .tr {
-    background-color: dark;
-
-    width: 100%;
+@media (max-width:430px) {
+  tr {
+  height: 50px;
   }
+
+  td {
+  width: 50px;
+  height: 72px;
+
+  }
+  .image {
+    width: 35px;
+    height: 35px;
+  }
+
 
 }
