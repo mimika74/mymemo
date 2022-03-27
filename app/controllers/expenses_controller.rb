@@ -50,9 +50,11 @@ class ExpensesController < ApplicationController
 
   def search
     if params[:search] != ""
-      @expenses =  Expense.where("memo LIKE(?)","%#{params[:search]}%")
+      #@expenses =  Expense.where("memo LIKE(?)","%#{params[:search]}%")
+      @expenses =  Expense.where(user_id: current_user.id).where("memo LIKE(?)","%#{params[:search]}%")
     else
-      @expenses = Expense.all
+      #@expenses = Expense.all
+      @expenses = current_user.expense.all
     end
 
   end
@@ -60,10 +62,17 @@ class ExpensesController < ApplicationController
 
 
   def show
+
+
     @date = @calendar_data
 
     @expense =Expense.find(params[:id])
-    @expenses = Expense.where(date: @expense.date)
+    #@expense.user_id = current_user.id
+    #@expenses = Expense.where(date: @expense.date)
+    @expenses = Expense.where(user_id: current_user.id).where(date: @expense.date)
+
+    redirect_to root_path unless current_user.id == @expense.user_id
+
   end
 
   def edit
@@ -95,12 +104,12 @@ class ExpensesController < ApplicationController
 
   def list
 
-    @expenses = Expense.all
+    @expenses = current_user.expense.all
   end
 
   def album
 
-    @expenses = Expense.all
+    @expenses = current_user.expense.all
   end
 
   def aggregate

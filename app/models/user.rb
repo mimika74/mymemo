@@ -5,8 +5,8 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_many :expense, dependent: :destroy
-  has_many :aggregate, dependent: :destroy
-  #has_one :favorite, dependent: :destroy
+
+  #has_many :favorites, dependent: :destroy
 
   validates :nickname, {presence:true, length: {minimum:2, maximum: 20}, uniqueness: true}
 
