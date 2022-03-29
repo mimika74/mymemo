@@ -23,7 +23,9 @@
 日々の支出状況のメモをするときに。支出内容を確認するときに。いつ何をしたか思い出したいときに
 
 ## 設計書
-後ほど追記します。
+詳細設計　https://docs.google.com/spreadsheets/d/1KQ-m80WjnQPFBzbuV6UEt1Np-jbZOjp8/edit#gid=549108681
+ER図　https://app.diagrams.net/#G1cISg7P5YHeU4ozmymvfz6lv7BNBRgnDn
+テーブル定義書　https://docs.google.com/spreadsheets/d/1jbmReY-UUXkR2qLMN_y-q7f1S8ueKu_7J8LteT_Dxx8/edit#gid=1398283818
 
 ## チャレンジ要素一覧
 

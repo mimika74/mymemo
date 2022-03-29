@@ -10,16 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_03_27_140746) do
-
-  create_table "aggregates", force: :cascade do |t|
-    t.integer "user_id"
-    t.integer "total_daily_expense"
-    t.integer "total_expense_by_genres"
-    t.date "target_month"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
+ActiveRecord::Schema.define(version: 2022_03_29_230221) do
 
   create_table "expenses", force: :cascade do |t|
     t.integer "user_id"
@@ -40,23 +31,9 @@ ActiveRecord::Schema.define(version: 2022_03_27_140746) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "genres", force: :cascade do |t|
-    t.string "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "inquiries", force: :cascade do |t|
     t.string "email"
     t.text "message"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "notifications", force: :cascade do |t|
-    t.integer "aggregate_id"
-    t.integer "total_monthly_expense"
-    t.date "target_month"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
