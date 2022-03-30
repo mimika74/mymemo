@@ -10,19 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_03_29_230221) do
+ActiveRecord::Schema.define(version: 2022_03_30_004326) do
 
   create_table "expenses", force: :cascade do |t|
     t.integer "user_id"
-    t.integer "genre_id"
     t.integer "expense"
     t.string "image_id"
     t.text "memo"
-    t.date "target_month"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.date "date"
-    t.date "month"
   end
 
   create_table "favorites", force: :cascade do |t|
