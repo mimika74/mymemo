@@ -2,8 +2,13 @@
 # against a throwaway MySQL 8.0 container.
 #
 #   docker compose build
-#   docker compose run --rm web bundle exec rails db:create db:migrate
+#   docker compose up -d db            # wait ~30s for MySQL to initialise
+#   docker compose run --rm web bundle exec rails db:schema:load
 #   docker compose up
+#
+# Use db:schema:load, NOT db:migrate: the migration history cannot replay from
+# scratch (20220329230221_drop_tables drops a `genres` table that no migration
+# creates). db/schema.rb is the authoritative, current schema.
 #
 # Then open http://localhost:3000
 services:
