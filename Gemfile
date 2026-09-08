@@ -65,7 +65,9 @@ end
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
-gem "refile", require: "refile/rails", github: 'manfe/refile'
+# Vendored copy of manfe/refile @ 46b4178 (upstream repo was deleted from GitHub).
+# Source: github.com/catima/refile network, same commit. See vendor/gems/refile.
+gem "refile", require: "refile/rails", path: "vendor/gems/refile"
 gem "refile-mini_magick"
 
 gem 'devise'

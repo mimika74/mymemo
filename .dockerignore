@@ -1,0 +1,14 @@
+.git
+.gitignore
+.github
+log/*
+tmp/*
+node_modules
+storage/*
+public/assets
+/.env
+/.env.*
+!/.env.example
+.byebug_history
+README.md
+docs

@@ -1,6 +1,5 @@
-GIT
-  remote: https://github.com/manfe/refile.git
-  revision: 46b4178654e60bb5846b1423acf6d0740cdecc25
+PATH
+  remote: vendor/gems/refile
   specs:
     refile (0.6.2)
       mime-types
