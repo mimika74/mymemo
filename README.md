@@ -83,12 +83,14 @@ ER図　https://app.diagrams.net/#G1cISg7P5YHeU4ozmymvfz6lv7BNBRgnDn
 
 https://docs.google.com/spreadsheets/d/1gi4e4-OimhfHJIn34Zae_F6jn_Vpe3uyEVb55IoMzN0/edit?usp=sharing
 
-## 開発環境（開発当初）
-- OS：Linux(CentOS)
-- 言語：HTML,CSS,JavaScript,Ruby,SQL
+## 開発環境（開発当初 / 2020年）
+- 開発環境：AWS Cloud9（Linux ≒ CentOS 上のクラウドIDE）
+- 言語：HTML, CSS, JavaScript, Ruby, SQL
 - フレームワーク：Ruby on Rails
 - JSライブラリ：jQuery
-- IDE：Cloud9
+
+現在（2026年）はローカルが Windows 11 + Docker Desktop、本番が Ubuntu 24.04（EC2）上の
+Docker コンテナ。詳細は「技術スタック」節を参照。
 
 ## 使用素材
 - https://fontawesome.com/v5/search
