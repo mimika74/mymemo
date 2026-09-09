@@ -1,5 +1,9 @@
 # Mymemo
 
+日々の出費を写真付きで記録して、買って得たものを後からカレンダーで視覚的に振り返る家計メモアプリ。
+
+🔗 **本番環境: https://mymemorry.com**
+
 ## サイト概要
 日々の出費を写真付きで記録して、買って得たものを後から視覚的にカレンダーで確認することができます。いつ何にお金を使ったか日記や手帳のように記録できるサイトです。
 
@@ -22,6 +26,54 @@
 ### 主な利用シーン
 日々の支出状況のメモをするときに。支出内容を確認するときに。いつ何をしたか思い出したいときに
 
+## 主な機能
+- ユーザー登録・ログイン（Devise）
+- 出費の登録・編集・削除（金額・メモ・日付・写真）
+- カレンダー表示 / 一覧 / アルバム / 月次集計
+- お気に入り登録
+- お問い合わせフォーム
+
+## 技術スタック
+
+### アプリケーション
+- Ruby 2.6.3 / Ruby on Rails 5.2
+- MySQL（本番） / SQLite（開発）
+- Devise（認証）, refile（画像アップロード。上流リポジトリが消滅したため `vendor/gems/refile` に同梱）, kaminari（ページネーション）
+- Bootstrap 4 / jQuery / Font Awesome 5
+- Puma
+
+### 本番インフラ（AWS / 2026年）
+- Docker コンテナ（`ruby:2.6.3-buster` ベース、アセットはビルド時にプリコンパイル）
+- AWS EC2（Ubuntu 24.04, t3.micro）上でコンテナを実行
+- AWS RDS for MySQL 8.0
+- Nginx（リバースプロキシ + SSL 終端）
+- Let's Encrypt（証明書、自動更新）
+- Amazon Route 53（独自ドメイン）
+
+構築手順とハマりどころ → [docs/deploy-aws.md](docs/deploy-aws.md)
+Docker 化以前（2020年頃）の構成 → [docs/history-2020-deploy.md](docs/history-2020-deploy.md)
+
+## ローカルでの起動
+
+### Docker（本番と同じ構成で確認できる）
+```bash
+docker compose build
+docker compose up -d db      # MySQL の初期化を 30 秒ほど待つ
+docker compose run --rm web bundle exec rails db:schema:load
+docker compose up
+```
+→ http://localhost:3000
+
+> スキーマ投入は `db:migrate` ではなく **`db:schema:load`** を使う。
+> 過去のマイグレーションを最初から再生できない（`db/schema.rb` が正）。
+
+### 直接（開発モード / SQLite）
+```bash
+bundle install
+bin/rails db:schema:load
+bin/rails s
+```
+
 ## 設計書
 詳細設計　https://docs.google.com/spreadsheets/d/1KQ-m80WjnQPFBzbuV6UEt1Np-jbZOjp8/edit#gid=549108681
 ER図　https://app.diagrams.net/#G1cISg7P5YHeU4ozmymvfz6lv7BNBRgnDn
@@ -31,13 +83,14 @@ ER図　https://app.diagrams.net/#G1cISg7P5YHeU4ozmymvfz6lv7BNBRgnDn
 
 https://docs.google.com/spreadsheets/d/1gi4e4-OimhfHJIn34Zae_F6jn_Vpe3uyEVb55IoMzN0/edit?usp=sharing
 
-## 開発環境
-- OS：Linux(CentOS)
-- 言語：HTML,CSS,JavaScript,Ruby,SQL
+## 開発環境（開発当初 / 2020年）
+- 開発環境：AWS Cloud9（Linux ≒ CentOS 上のクラウドIDE）
+- 言語：HTML, CSS, JavaScript, Ruby, SQL
 - フレームワーク：Ruby on Rails
 - JSライブラリ：jQuery
-- IDE：Cloud9
+
+現在（2026年）はローカルが Windows 11 + Docker Desktop、本番が Ubuntu 24.04（EC2）上の
+Docker コンテナ。詳細は「技術スタック」節を参照。
 
 ## 使用素材
 - https://fontawesome.com/v5/search
--
