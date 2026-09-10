@@ -51,7 +51,7 @@
 - Amazon Route 53（独自ドメイン）
 
 構築手順とハマりどころ → [docs/deploy-aws.md](docs/deploy-aws.md)
-Docker 化以前（2020年頃）の構成 → [docs/history-2020-deploy.md](docs/history-2020-deploy.md)
+Docker 化以前（2021年頃）の構成 → [docs/history-2021-deploy.md](docs/history-2021-deploy.md)
 
 ## ローカルでの起動
 
@@ -76,14 +76,13 @@ bin/rails s
 
 ## 設計書
 詳細設計　https://docs.google.com/spreadsheets/d/1KQ-m80WjnQPFBzbuV6UEt1Np-jbZOjp8/edit#gid=549108681
-ER図　https://app.diagrams.net/#G1cISg7P5YHeU4ozmymvfz6lv7BNBRgnDn
 テーブル定義書　https://docs.google.com/spreadsheets/d/1jbmReY-UUXkR2qLMN_y-q7f1S8ueKu_7J8LteT_Dxx8/edit#gid=1398283818
 
 ## チャレンジ要素一覧
 
 https://docs.google.com/spreadsheets/d/1gi4e4-OimhfHJIn34Zae_F6jn_Vpe3uyEVb55IoMzN0/edit?usp=sharing
 
-## 開発環境（開発当初 / 2020年）
+## 開発環境（開発当初 / 2021年）
 - 開発環境：AWS Cloud9（Linux ≒ CentOS 上のクラウドIDE）
 - 言語：HTML, CSS, JavaScript, Ruby, SQL
 - フレームワーク：Ruby on Rails
