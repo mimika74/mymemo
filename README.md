@@ -51,7 +51,7 @@
 - Amazon Route 53（独自ドメイン）
 
 構築手順とハマりどころ → [docs/deploy-aws.md](docs/deploy-aws.md)
-Docker 化以前（2020年頃）の構成 → [docs/history-2020-deploy.md](docs/history-2020-deploy.md)
+Docker 化以前（2021年頃）の構成 → [docs/history-2021-deploy.md](docs/history-2021-deploy.md)
 
 ## ローカルでの起動
 
